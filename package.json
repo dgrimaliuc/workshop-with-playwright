@@ -1,0 +1,23 @@
+{
+  "type": "module",
+  "name": "e2e",
+  "version": "1.0.0",
+  "main": "babelrc.js",
+  "scripts": {
+    "test": "npx playwright test",
+    "show:report": "npx playwright show-report test-results/playwright-report"
+  },
+  "author": "denis.grimaliuc@gmail.com",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@playwright/test": "^1.46.1",
+    "config": "^3.3.12",
+    "dotenv": "^16.4.7",
+    "jsdom": "^24.1.1",
+    "playwright": "^1.50.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.4"
+  }
+}
