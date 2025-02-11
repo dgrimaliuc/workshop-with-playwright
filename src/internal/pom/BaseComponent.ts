@@ -5,4 +5,8 @@ export abstract class BaseComponent extends BasePage {
   constructor(protected readonly root: Locator) {
     super(root.page());
   }
+
+  public getRoot(): Locator {
+    return this.root;
+  }
 }

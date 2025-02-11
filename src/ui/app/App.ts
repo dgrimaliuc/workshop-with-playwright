@@ -1,5 +1,7 @@
 import { Page } from "@playwright/test";
 
-export class App {
+export abstract class App {
   constructor(protected readonly page: Page) {}
+
+  abstract initApp(): void;
 }
