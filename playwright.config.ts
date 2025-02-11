@@ -21,7 +21,7 @@ export default defineConfig({
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: true,
   retries: 0,
-  reporter: [["html", { outputFolder: "test-results/playwright-report" }]],
+  reporter: [["html", { outputFolder: "playwright-report" }]],
   use: {
     ...devices["Desktop Chrome"],
     trace: "on", // Captures traces for all tests
@@ -49,6 +49,7 @@ export default defineConfig({
   projects: [
     {
       name: "gallery",
+      testMatch: ["gallery/**.ts"],
       use: {
         baseURL: "https://personal-media-gallery.web.app",
       },
@@ -59,6 +60,7 @@ export default defineConfig({
     },
     {
       name: "stream",
+      testMatch: ["stream/**.ts"],
       use: {
         baseURL: "https://neon-stream.web.app",
       },
