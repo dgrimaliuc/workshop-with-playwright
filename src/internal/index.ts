@@ -29,5 +29,8 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.beforeAll(async ({}, testInfo) => {
+  const activeProject = testInfo.project.name;
+  console.log(`Running tests for project: [${activeProject}]`);
+  process.env.NODE_ENV = activeProject;
   setupEnv();
 });
