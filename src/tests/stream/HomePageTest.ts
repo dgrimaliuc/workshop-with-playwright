@@ -1,8 +1,33 @@
-import { test, describe } from "../../internal";
+import { test, describe, expect } from "../../internal";
 import { StreamHomePage } from "../../ui/pages/neonStream";
 
 describe("Home page tests", () => {
-  test("Open Home page test", async ({ app, actions }) => {
+  test("Home page test test", async ({ page }) => {
+    const element = page.locator("[class*=hero-carousel-wrapper]");
+    await expect(element).toBeVisible();
+    const tabs = page.locator("button[class*=hero-carousel__page]");
+    await expect(tabs).toHaveCount(9);
+  });
+
+  test("Search test", async ({ page }) => {
+    await page.locator("[class*=search_container] input").click();
+    await page.locator("[class*=search_container] input").fill("Hello, World!");
+    await expect(page.locator("[class*=browse-card_browse-card-body]")).toHaveCount(17);
+  });
+
+  test("Series page test", async ({ page }) => {
+    await page.goto("/tv/37854");
+    await expect(page.locator("[class*=content-header_title]")).toHaveText("One Piece");
+    await expect(page.locator("[class*=hero-content_hero-title]")).toHaveText("One Piece (1999)");
+    await expect(page.locator("[class*=hero-content_tagline]")).toHaveText(
+      "Set sail for One Piece!"
+    );
+    await expect(page.locator("[class*=description-container]")).toContainText(
+      "Years ago, the fearsome Pirate King"
+    );
+  });
+
+  test("Watch list test", async ({ app, actions }) => {
     const homePage = app.stream.home;
 
     await actions.shouldSeeNumberOfElements(homePage.heroCarousel.placeholders, 0);
