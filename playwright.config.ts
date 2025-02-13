@@ -11,15 +11,18 @@ process.env.NODE_ENV = process.env.NODE_ENV ?? defaultEnv;
  */
 
 export default defineConfig({
+  // Timeout for each test in milliseconds. Defaults to 30 seconds.
   timeout: 35000,
   expect: {
     timeout: 10000,
   },
   testDir: "./src/tests",
   outputDir: "./test-results",
-  testMatch: "**.ts",
+
   fullyParallel: false,
   forbidOnly: true,
+  testMatch: "**.ts",
+  // The maximum number of retry attempts given to failed tests.
   retries: 0,
   reporter: "html",
   use: {
@@ -29,8 +32,9 @@ export default defineConfig({
     ignoreHTTPSErrors: true,
     viewport: { width: 1720, height: 980 },
     video: {
+      // Record video for each test, but remove all videos from successful test runs.
       mode: "retain-on-failure",
-      size: { width: 1920, height: 1080 },
+      size: { width: 1720, height: 980 },
     },
     actionTimeout: 10000,
     testIdAttribute: "data-t",

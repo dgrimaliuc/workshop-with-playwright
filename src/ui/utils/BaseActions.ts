@@ -25,11 +25,27 @@ export class BaseActions {
     );
   }
 
+  async shouldSeeNumberOfElementsLess(locator: CustomLocator, number: number) {
+    await waitForCondition(
+      async () => (await this.getLocator(locator).count()) < number,
+      `Timeout waiting for [${locator}] count to be less then ${number}`
+    );
+  }
+
   async shouldSee(locator: CustomLocator) {
     await expect(this.getLocator(locator)).toBeInViewport();
   }
+
+  async shouldNotSee(locator: CustomLocator) {
+    await expect(this.getLocator(locator)).not.toBeInViewport();
+  }
+
   async shouldHaveText(locator: CustomLocator, text: string) {
     await expect(this.getLocator(locator)).toHaveText(text);
+  }
+
+  async shouldNotHaveText(locator: CustomLocator, text: string) {
+    await expect(this.getLocator(locator)).not.toHaveText(text);
   }
 
   async shouldContainText(locator: CustomLocator, text: string) {
@@ -38,6 +54,10 @@ export class BaseActions {
 
   async shouldBeDisplayed(locator: CustomLocator) {
     await expect(this.getLocator(locator)).toBeVisible();
+  }
+
+  async shouldNotBeDisplayed(locator: CustomLocator) {
+    await expect(this.getLocator(locator)).not.toBeVisible();
   }
 
   async scrollIntoCenter(locator: CustomLocator) {
