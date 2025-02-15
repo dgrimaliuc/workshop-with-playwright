@@ -1,5 +1,4 @@
 import { test, describe, expect } from "../../internal";
-import { StreamHomePage } from "../../ui/pages/neonStream";
 
 describe("Home page tests", () => {
   test("Home page test test", async ({ page }) => {

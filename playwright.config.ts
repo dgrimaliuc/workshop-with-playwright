@@ -11,7 +11,7 @@ process.env.NODE_ENV = process.env.NODE_ENV ?? defaultEnv;
  */
 
 export default defineConfig({
-  // Timeout for each test in milliseconds. Defaults to 30 seconds.
+  // Timeout for each test in milliseconds. Defaults to 35 seconds.
   timeout: 35000,
   expect: {
     timeout: 10000,

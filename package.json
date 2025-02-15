@@ -5,7 +5,7 @@
   "main": "babelrc.js",
   "scripts": {
     "test": "npx playwright test",
-    "show:report": "npx playwright show-report test-results/playwright-report"
+    "show:report": "npx playwright show-report playwright-report"
   },
   "author": "denis.grimaliuc@gmail.com",
   "license": "ISC",
