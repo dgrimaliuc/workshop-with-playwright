@@ -1,5 +1,6 @@
 import { BasePage } from "../../../internal/pom";
 
 export class GalleryHomePage extends BasePage {
-  // Add your selectors here
+  public searchInput = this.page.getByTestId("search-input");
+  public mediaCard = this.page.getByTestId("media-card");
 }

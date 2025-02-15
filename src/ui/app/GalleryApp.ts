@@ -14,5 +14,7 @@ export class GalleryApp extends App {
 
   initApp(): void {
     this.home = new GalleryHomePage(this.page);
+    this.logIn = new GalleryLogInPage(this.page);
+    this.register = new GalleryRegisterPage(this.page);
   }
 }
